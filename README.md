@@ -1,14 +1,10 @@
-# App name
+# Checkpoint ZD App
 
 [brief description of the app]
 
 ### The following information is displayed:
 
-* info1
-* info2
-* info3
+Used as a background Zendesk App that submits an internal note based on ticket thresholds and criterias like time elapsed, escalation submission status, etc.
 
-Please submit bug reports to [Insert Link](). Pull requests are welcome.
 
-### Screenshot(s):
-[put your screenshots down here.]
+
