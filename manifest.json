@@ -1,0 +1,20 @@
+{
+  "name": "Checkpoints",
+  "author": {
+    "name": "Darryn Wu",
+    "email": "darryn8wu@gmail.com",
+    "url": "https://github.com/dw8787878"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+      "url": "assets/iframe.html",
+      "autoHide": true
+      }
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0"
+}
