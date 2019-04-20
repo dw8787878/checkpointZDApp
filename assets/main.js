@@ -22,10 +22,6 @@ client.get('ticket').then((results) => {
     }
 
     let difference = dateDiffInDays(new Date(ticketDate), todayDate);
-    //console.log("this is a:", a);
-    //console.log("this is b:", b);
-    console.log("This is the difference:", difference);
-
     let updateCheckpoint1 = false;
     let updateCheckpoint2 = false;
     let updateCheckpoint3 = false;
@@ -34,7 +30,6 @@ client.get('ticket').then((results) => {
     let escalated = false;
     let escalatedAccepted = false;
     let tags = results.ticket.tags;
-    //console.log("these are all the tags:", tags);
 
     tags.forEach(function (tag) {
         if (tag === 'checkpoint1') {
@@ -84,7 +79,6 @@ client.get('ticket').then((results) => {
           difference = dateDiffInDays(escalation_submitted_date, todayDate);
 
           if (difference >= 1 && difference <= 3) {
-            console.log('adding escalated ticket comment');
             comment = ' * Do you know the escalation timeline? \n* Do you have enough information from Triage to provide the client a meaningful update?';
             addCheckPoint(comment, ticket_id);
             addTag(3, ticket_id);
@@ -98,8 +92,6 @@ client.get('ticket').then((results) => {
             let escalation_accepted_date = Object.values(result)[1];
             escalation_accepted_date = new Date(escalation_accepted_date);
             difference = dateDiffInDays(escalation_accepted_date, todayDate);
-            console.log('escalation_accepted_date:', escalation_accepted_date);
-            console.log('checkpoint 4 - difference:', difference);
             if (difference >= 1 && difference <= 3) {
                 console.log('adding checkpoint 4 escalated ticket comment');
                 comment = ' * Check on your Engineering escalation once per release to make sure clients are getting meaningful updates.\n    * Ask Triage for help if no update. \n* Unsure of a response from Engineering or Operations?\n    * Consult with Triage or CS team to revise messaging.\n* Do you need MTAM to assist in increasing the urgency for your case?';
@@ -115,11 +107,8 @@ client.get('ticket').then((results) => {
             let escalation_accepted_date = Object.values(result)[1];
             escalation_accepted_date = new Date(escalation_accepted_date);
             difference = dateDiffInDays(escalation_accepted_date, todayDate);
-            console.log('escalation_accepted_date:', escalation_accepted_date);
-            console.log('checkpoint 5 - difference:', difference);
             difference = 10;
             if (difference >= 5 && difference <= 14) {
-                console.log('adding checkpoint 5 escalated ticket comment');
                 comment = ' * Do you have an ETA? Is the Client asking about an ETA?\n    * Involve CSM and Triage';
                 addCheckPoint(comment, ticket_id);
                 addTag(5, ticket_id);
@@ -145,7 +134,6 @@ client.get('ticket').then((results) => {
     }
 
     function addTag(phase, ticket_id) {
-        console.log("adding tag...");
         client.request({
             url: `/api/v2/tickets/${ticket_id}/tags.json`,
             type: 'PUT',
