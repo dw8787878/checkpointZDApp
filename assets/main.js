@@ -6,11 +6,8 @@ client.get('ticket').then((results) => {
         let ticketDate = results.ticket.createdAt;
         let ticket_id = results.ticket.id;
         let comment = "";
-
-        //2660739083 is benson
-        //332263405 is arnold
-        //332269365 is yu
-        let authorID = 332269365;
+        
+        let authorID = 11111111;
         let todayDate = new Date();
 
         function dateDiffInDays(a, b) {
